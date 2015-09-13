@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>野狼投资--让收益看得见</title>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+    <!--<link rel="stylesheet" href="http://bughd.com/stylesheets/0243c36f.app.min.css">-->
+</head>
+<body>
+    <nav class="topnav purple" ng-class="{'is-project':isProject}" ng-controller="navCtrl">
+        <div class="inner">
+            <div class="nav">
+                <div class="pull-left"><a href="/" class="brand"><img src="img/logo.png"><span>野狼投资</span></a></div>
+                <div class="pull-right signin-menus" ng-hide="currentUser"><a target="_self" href="/oauth/signin">登录</a>
+                    <span class="split">|</span> <a target="_self" href="/oauth/signup">创建帐号</a></div>
+                <div class="pull-right userinfo-menus" ng-show="currentUser">
+                    <div ui-sref="account" class="avatar lack-link">
+                        <avatar url="currentUser.gravatar" default="/imgs/default_avatar_trans.png" size="m"
+                                ng-if="currentUser"></avatar>
+                        <div class="user-dropdown">
+                            <ul>
+                                <li><a ui-sref="account"><i class="icon-settings pull-left"></i> 我的资料</a></li>
+                                <li class="hori-split"></li>
+                                <li><a class="lack-link" ng-click="signout()"><i class="icon-logout pull-left"></i> 退出帐号</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar signin-menus visible-md visible-lg visible-sm">
+
+                </div>
+                <div class="pull-right cards-menu-toggle visible-xs"><img src="img/bars.png"></div>
+            </div>
+            <div class="project-nav">
+                <div class="pull-left"><a class="back-link" ng-click="back()"><i></i> <span ng-show="isDemo">返回首页</span>
+                    <span ng-hide="isDemo">项目列表</span></a></div>
+                <h4 class="text-center"><span ng-bind="currentPj.name"></span> <i ng-class="'icon-' + currentPj.genre"></i>
+                </h4>
+            </div>
+        </div>
+    </nav>
+    <div ng-view >
+
+    </div>
+    <ng-include src="'template/footer.html'" class="ng-scope"></ng-include>
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+  -->
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="bower_components/Chart.js/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

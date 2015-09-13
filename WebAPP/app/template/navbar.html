@@ -1,0 +1,43 @@
+<nav class="topnav purple" ng-class="{'is-project':isProject}" ng-controller="navCtrl">
+    <div class="inner">
+        <div class="nav">
+            <div class="pull-left"><a href="/" class="brand"><img src="img/logo.png"><span>野狼投资</span></a></div>
+            <div class="pull-right signin-menus" ng-hide="currentUser"><a target="_self" href="#login">登录</a>
+                <span class="split">|</span> <a target="_self" href="#reg">创建帐号</a></div>
+            <div class="pull-right userinfo-menus" ng-show="currentUser">
+                <div ui-sref="account" class="avatar lack-link">
+                    <avatar url="currentUser.gravatar" default="img/default_avatar_trans.png" size="m"
+                            ng-show="currentUser"></avatar>
+                    <a href="#">{{currentUserName}}</a>
+                    <div class="user-dropdown">
+                        <ul>
+                            <!--<li><a ui-sref="account">我的资料</a></li>-->
+                            <!--<li class="hori-split"></li>-->
+                            <li><a class="lack-link" ng-click="logout()">退出帐号</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar signin-menus visible-md visible-lg visible-sm">
+                <ul class="list-unstyled list-inline">
+                    <li ng-class="{active:currentState.current.name.indexOf('doc.')>-1}"><a ui-sref="doc.manual" href="#reference">早盘内参</a>
+                    </li>
+                    <li ui-sref-active="active"><a ui-sref="download" href="#stock_zh">投资组合</a></li>
+                    <!--<li ui-sref-active="active"><a ui-sref="download" href="#stock_news">动态新闻</a></li>-->
+                    <li ui-sref-active="active" ng-if="currentUser"><a ui-sref="projects" href="#stock_recommend">推荐股票</a></li>
+                    <li ui-sref-active="active" ng-if="currentUser"><a ui-sref="projects" href="#stock_best">龙头个股</a></li>
+                    <li ui-sref-active="active" class="navbar-demo"><a class="lack-link" href="#stock_research">研报</a>
+                        <div class="demo-dropdown">
+                            <ul>
+                                <li><a ui-sref="demo.analysis({id:'ios'})">iOS</a></li>
+                                <li class="hori-split"></li>
+                                <li><a ui-sref="demo.analysis({id:'android'})">Android</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="pull-right cards-menu-toggle visible-xs"><img src="img/bars.png"></div>
+        </div>
+    </div>
+</nav>
