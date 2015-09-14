@@ -1,3 +1,4 @@
+var stock_canvas_data = [];
 (function(){
     var t;
     function size(animate){
@@ -31,21 +32,9 @@
         }
         var data = [
             {
-                value: 20,
+                value: 100,
                 color:"#637b85"
             },
-            {
-                value : 30,
-                color : "#2c9c69"
-            },
-            {
-                value : 40,
-                color : "#dbba34"
-            },
-            {
-                value : 10,
-                color : "#c62f29"
-            }
 
         ];
         var canvas = document.getElementById("hours");

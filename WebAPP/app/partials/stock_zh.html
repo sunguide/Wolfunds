@@ -17,11 +17,10 @@
                                 <p class="net-worth">单位净值<span class="increase-rate">2.3</span></p>
                             </div>
                             <div class="chart-legend">
-                                <ul>
-                                    <li class="rework">陆家嘴（600686） 50%</li>
-                                    <li class="admin">锦江投资（600686） 60%</li>
-                                    <li class="prod">金龙汽车（600686） 14%</li>
-                                    <li class="ship">现金（600686） 10%</li>
+                                <ul >
+                                    <li ng-repeat="item in stocks" class="fill-color-{{$index + 1}}">
+                                        {{item.name}}（{{item.code}}） {{item.rate}}
+                                    </li>
                                 </ul>
                             </div>
                         </div>
