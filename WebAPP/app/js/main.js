@@ -1,4 +1,4 @@
-var stock_canvas_data = [];
+var stocks_canvas_data = [];
 (function(){
     var t;
     function size(animate){
@@ -30,14 +30,21 @@ var stock_canvas_data = [];
         } else {
             options.animation = true;
         }
-        var data = [
-            {
-                value: 100,
-                color:"#637b85"
-            },
+        var stocks_canvas_data = JSON.parse(localStorage.getItem("wf.stocks_canvas_data"));
 
-        ];
-        var canvas = document.getElementById("hours");
+        console.log(stocks_canvas_data);
+        if(stocks_canvas_data && stocks_canvas_data.length > 0){
+            var data = stocks_canvas_data;
+        }else{
+            var data =  [
+                    {
+                        value: 100,
+                        color:"#637b85"
+                    },
+
+                ];
+        }
+        var canvas = document.getElementById("stock_hold_canvas");
         var ctx = canvas.getContext("2d");
         new Chart(ctx).Doughnut(data, options);
     }

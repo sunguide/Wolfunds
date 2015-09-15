@@ -1,20 +1,25 @@
 <section data-ui-view="" class="ng-scope">
     <div class="body-wrapper ng-scope">
-        <section class="stock-best container">
-            <h3>强势预测</h3>
-            <div class="recommend-stock" style=" margin: 0 auto; background: #F10B0B;color: #FFF;position: absolute;border-radius: 2px;">
-                <div class="stock-info col-sm-5" style="padding: 10px;">
-                    <span class="price" style="display: block;">32.34</span>
-                    <span class="name">锦江投资(600634)</span>
-                </div>
-                <div class="stock-buy col-sm-3" style="border-left: 3px solid #FFF;height:80px;">
-                    <span>32.23</span>
-                    <span>推荐买入价</span>
-                </div>
-                <div class="stock-buy col-sm-3" style="border-left: 3px solid #FFF;height:80px; ">
-                    <span>当前价：32</span>
-                    <span class="increase-rate">8.2%</span>
-                </div>
+        <section class="stock-best container" style="text-align: center">
+            <h3>强势推荐</h3>
+            <div class="recommend-stocks" style=" margin: 0 auto; ">
+                <!--<div class="stock-info col-sm-5" style="padding: 10px;">-->
+                    <!--<span class="price" style="display: block;">32.34</span>-->
+                    <!--<span class="name">锦江投资(600634)</span>-->
+                <!--</div>-->
+                <!--<div class="stock-buy col-sm-3" style="border-left: 3px solid #FFF;height:80px;">-->
+                    <!--<span>32.23</span>-->
+                    <!--<span>推荐买入价</span>-->
+                <!--</div>-->
+                <!--<div class="stock-buy col-sm-3" style="border-left: 3px solid #FFF;height:80px; ">-->
+                    <!--<span>当前价：32</span>-->
+                    <!--<span class="increase-rate">8.2%</span>-->
+                <!--</div>-->
+                <ul style="font-size: 16px;margin-top: 30px;">
+                    <li ng-repeat="item in stocks" class="fill-color-{{$index + 1}}">
+                        {{item.name}}（{{item.code}}） 七日目标价：{{item.target_price}}元 ，建仓安全价：{{item.buy_price}}元附近
+                    </li>
+                </ul>
             </div>
         </section>
     </div>

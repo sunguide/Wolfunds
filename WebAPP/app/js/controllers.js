@@ -13,8 +13,24 @@ MyCtrl1.$inject = [];
 function MyCtrl2() {
 }
 
-
-function zhCtrl($scope,$http){
+function BestCtrl($scope,$http){
+    $scope.stocks = [];
+    var API_URL = API_BASE_URL+"/Stock/best";
+    $http({
+        method  : 'POST',
+        url     : API_URL,
+        data    : $scope.formData,  // pass in data as strings
+        headers : {'Content-type':"application/json"}  // set the headers so angular passing info as form data (not request payload)
+    }).success(function(data) {
+        if ('FAIL' == data.status.toString()) {
+            // if not successful, bind errors to error variables
+            remind(data.errors[0]['error'],"","error")
+        } else {
+            $scope.stocks = data.result;
+        }
+    });
+}
+function zhCtrl($scope,$http,localStorageService){
     $scope.stocks = [];
     $scope.stocks_canvas_data = [];
     var API_URL = API_BASE_URL+"/Stock/combination";
@@ -34,6 +50,7 @@ function zhCtrl($scope,$http){
             $scope.stocks.forEach(function(e,index){
                 $scope.stocks_canvas_data.push({value: e.rate,color: colors[index]});
             });
+            localStorageService.add("stocks_canvas_data",$scope.stocks_canvas_data);
             $(window).resize();
             console.log($scope.stocks_canvas_data);
         }
