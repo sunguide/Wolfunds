@@ -9,7 +9,22 @@ function HomeCtrl($scope, $routeParams,$cookieStore) {
 function MyCtrl1() {}
 MyCtrl1.$inject = [];
 
-
+function ReferenceCtrl($scope,$http){
+    $scope.reference = {};
+    var API_URL = API_BASE_URL+"/Stock/reference";
+    $http({
+        method  : 'POST',
+        url     : API_URL,
+        data    : $scope.formData,  // pass in data as strings
+        headers : {'Content-type':"application/json"}  // set the headers so angular passing info as form data (not request payload)
+    }).success(function(data) {
+        if ('FAIL' == data.status.toString()) {
+            remind(data.errors[0]['error'],"","error")
+        } else {
+            $scope.reference = data.result;
+        }
+    });
+}
 function MyCtrl2() {
 }
 

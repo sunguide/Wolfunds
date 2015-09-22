@@ -6,12 +6,13 @@
     localStorageServiceProvider.setPrefix('wf');
   }]);
   app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('', {templateUrl: 'partials/home.html', controller: HomeCtrl});
-    $routeProvider.when('/', {templateUrl: 'partials/home.html', controller: HomeCtrl});
-    $routeProvider.when('/reference', {templateUrl: 'partials/reference.html', controller: MyCtrl1});
+    $routeProvider.when('', {templateUrl: 'partials/reference.html', controller: ReferenceCtrl});
+    $routeProvider.when('/', {templateUrl: 'partials/reference.html', controller: ReferenceCtrl});
+    $routeProvider.when('/reference', {templateUrl: 'partials/reference.html', controller: ReferenceCtrl});
     $routeProvider.when('/stock_zh', {templateUrl: 'partials/stock_zh.html', controller: zhCtrl});
     $routeProvider.when('/stock_best', {templateUrl: 'partials/stock_best.html', controller: BestCtrl});
     $routeProvider.when('/stock_recommend', {templateUrl: 'partials/stock_recommend.html', controller: MyCtrl1});
+    $routeProvider.when('/about', {templateUrl: 'partials/home.html', controller: HomeCtrl});
     $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: LoginCtrl});
     $routeProvider.when('/logout', {templateUrl: 'partials/login.html', controller: LogoutCtrl});
     $routeProvider.when('/reg', {templateUrl: 'partials/reg.html', controller: RegCtrl});

@@ -4580,3 +4580,21 @@ canvas[resize] {
 .notify h1{
     text-align: center;
 }
+.about-content{
+    padding: 20px;
+}
+.cooperator{
+    margin: 150px auto;
+    margin-bottom: 50px;
+}
+ul.cooperator-list{
+    list-style: none;
+    text-align: center;
+}
+ul.cooperator-list li,ul.cooperator-list li img{
+    width: 160px;
+    display: inline-block;
+}
+ul.cooperator-list li:first-child{
+    font-size: 2em;
+}
